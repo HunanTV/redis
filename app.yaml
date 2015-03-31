@@ -1,0 +1,17 @@
+appname: "redis"
+entrypoints:
+  aof:
+    cmd: "redis-server aof.conf"
+  rdb:
+    cmd: "redis-server rdb.conf"
+  host:
+    cmd: "redis-server rdb.conf"
+    network_mode: "host"
+build:
+  - "make"
+  - "make install"
+  - "mkdir -p /var/lib/redis"
+  - "chmod 777 /var/lib/redis"
+  - "cp *.conf /var/lib/redis"
+  - "rm -rf ./*"
+  - "mv /var/lib/redis/* ."
