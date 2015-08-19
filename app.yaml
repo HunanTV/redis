@@ -1,11 +1,9 @@
 appname: "redis"
 entrypoints:
-  aof:
-    cmd: "redis-server aof.conf"
-  rdb:
-    cmd: "redis-server rdb.conf"
+  macvlan:
+    cmd: "redis-server eru.conf"
   host:
-    cmd: "redis-server rdb.conf"
+    cmd: "redis-server eru.conf"
     network_mode: "host"
 build:
   - "make"
